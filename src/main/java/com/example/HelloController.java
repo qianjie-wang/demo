@@ -23,7 +23,7 @@ public class HelloController extends SpringBootServletInitializer {
 
           String path = ResourceUtils.getURL("classpath:").getPath();
           System.out.println(path);
-        return "Hello ,spring boot!";
+        return path;
     }
 
     public static void main(String[] args) throws Exception {
