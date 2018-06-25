@@ -6,8 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.io.FileNotFoundException;
 
 @Controller
 @EnableAutoConfiguration
@@ -16,7 +19,10 @@ public class HelloController extends SpringBootServletInitializer {
 
 	@RequestMapping("/hello")
     @ResponseBody
-    String home() {
+    String home() throws FileNotFoundException {
+
+          String path = ResourceUtils.getURL("classpath:").getPath();
+          System.out.println(path);
         return "Hello ,spring boot!";
     }
 
